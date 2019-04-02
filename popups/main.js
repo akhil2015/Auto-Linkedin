@@ -7,3 +7,8 @@ follow.addEventListener("change", () => {
 bookmark.addEventListener("change", () => {
     chrome.storage.sync.set({'follow':follow.checked});
 })
+window.addEventListener("load",(()=>{
+    chrome.storage.sync.get('follow',flag=>{
+        document.getElementById('follow').checked=flag.follow;
+    })
+}))
